@@ -3,7 +3,7 @@ package daysteps
 import (
 	"errors"
 	"fmt"
-	"spentCalories"
+	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
 	"strconv"
 	"strings"
 	"time"
@@ -49,7 +49,7 @@ func DayActionInfo(data string, weight, height float64) string {
 		return "parsePackage miss"
 	}
 	distance := float64(steps) * StepLength / 1000
-	calories := WalkingSpentCalories(steps, height, weight, timeAction)
+	calories := spentCalories.WalkingSpentCalories(steps, height, weight, timeAction)
 	info := fmt.Sprint(
 		"Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.",
 		steps, distance, calories,

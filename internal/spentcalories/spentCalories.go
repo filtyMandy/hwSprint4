@@ -2,6 +2,7 @@ package spentCalories
 
 import (
 	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -69,30 +70,25 @@ func meanSpeed(steps int, duration time.Duration) float64 {
 //
 // data string - строка с данными.
 // weight, height float64 — вес и рост пользователя.
-func TrainingInfo(data string, weight, height float64) string
+func TrainingInfo(data string, weight, height float64) string {
+
 	// ваш код ниже
 	steps, typeTraning, duration, err := parseTraining(data)
 	if err != nil {
 		return err.Error()
-}
+	}
 
-	speed := meanSpeed(steps, duration)
-	caloriesW := WalkingSpentCalories(steps, weight, height, duration)
-	caloriesR := RunningSpentCalories(steps, weight, duration)
+	var calories float64
 
 	switch typeTraning {
-		case "Ходьба":
-			return return fmt.Sprintf(
-	"Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
-	typeTraning, duration.Hours(), steps, typeTraning, caloriesW)
-		case "Бег":
-			return fmt.Sprintf(
-"Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
-typeTraning, duration.Hours(), steps, typeTraning, caloriesR)
-			default:
-				return "неизвестный тип тренировки"
-}
-
+	case "Ходьба":
+		calories = WalkingSpentCalories(steps, weight, height, duration)
+	case "Бег":
+		calories = RunningSpentCalories(steps, weight, duration)
+	}
+	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
+		typeTraning, duration.Hours(), distance(steps), meanSpeed(steps, duration), calories,
+	)
 }
 
 // Константы для расчета калорий, расходуемых при беге.

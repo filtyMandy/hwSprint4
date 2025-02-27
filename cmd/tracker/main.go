@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/daysteps"
-	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentCalories"
+	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
 )
 
 func main() {
@@ -55,7 +55,7 @@ func main() {
 	)
 
 	for _, v := range trainings {
-		trainingInfo = spentcalories.TrainingInfo(v, weight, height)
+		trainingInfo = spentCalories.TrainingInfo(v, weight, height)
 		trainingLog = append(trainingLog, trainingInfo)
 	}
 
