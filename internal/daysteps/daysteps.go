@@ -3,7 +3,8 @@ package daysteps
 import (
 	"errors"
 	"fmt"
-	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
+	spentCalories "github.com/filtyMandy/hwSprint4/internal/spentcalories"
+	//"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
 	"strconv"
 	"strings"
 	"time"

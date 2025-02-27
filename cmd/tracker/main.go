@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	spentCalories "github.com/filtyMandy/hwSprint4/internal/spentcalories"
 
-	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/daysteps"
-	"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
+	//"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/daysteps"
+	//"github.com/Yandex-Practicum/go1fl-4-sprint-final/internal/spentcalories"
+	"github.com/filtyMandy/hwSprint4/internal/daysteps"
 )
 
 func main() {
