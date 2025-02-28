@@ -51,8 +51,8 @@ func DayActionInfo(data string, weight, height float64) string {
 	}
 	distance := float64(steps) * StepLength / 1000
 	calories := spentCalories.WalkingSpentCalories(steps, height, weight, timeAction)
-	info := fmt.Sprint(
-		"Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.",
+	info := fmt.Sprintf(
+		"Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.\n",
 		steps, distance, calories,
 	)
 	return info

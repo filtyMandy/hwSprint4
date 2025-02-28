@@ -86,7 +86,7 @@ func TrainingInfo(data string, weight, height float64) string {
 	case "Бег":
 		calories = RunningSpentCalories(steps, weight, duration)
 	}
-	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
+	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n",
 		typeTraning, duration.Hours(), distance(steps), meanSpeed(steps, duration), calories,
 	)
 }
