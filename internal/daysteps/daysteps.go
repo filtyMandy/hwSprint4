@@ -24,13 +24,13 @@ func parsePackage(data string) (int, time.Duration, error) {
 	// Преобразуем первую часть в число (шаги)
 	steps, err := strconv.Atoi(parts[0])
 	if err != nil {
-		return 0, 0, err
+		return 0, 0, errors.New("invalid package")
 	}
 
 	// Преобразуем вторую часть в time.Duration (время)
 	timeAction, err := time.ParseDuration(parts[1])
 	if err != nil {
-		return 0, 0, err
+		return 0, 0, errors.New("invalid package")
 	}
 
 	// Возвращаем результат
@@ -47,7 +47,7 @@ func DayActionInfo(data string, weight, height float64) string {
 	// ваш код ниже
 	steps, timeAction, err := parsePackage(data)
 	if err != nil {
-		return "parsePackage miss"
+		return err.Error()
 	}
 	distance := float64(steps) * StepLength / 1000
 	calories := spentCalories.WalkingSpentCalories(steps, height, weight, timeAction)
